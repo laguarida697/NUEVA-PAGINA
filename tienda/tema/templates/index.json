@@ -1,0 +1,162 @@
+{
+  "sections": {
+    "hero": {
+      "type": "gt-hero",
+      "settings": {}
+    },
+    "marquesina": {
+      "type": "gt-marquesina",
+      "settings": {}
+    },
+    "categorias": {
+      "type": "gt-categorias",
+      "blocks": {
+        "ninos": {
+          "type": "tarjeta",
+          "settings": {
+            "title": "Niños",
+            "text": "Brujitas, vampiros, fantasmas y calabazas para los más pequeños.",
+            "cta": "Ver disfraces de niños",
+            "url": "/collections/disfraces-ninos",
+            "icon": "calabaza"
+          }
+        },
+        "adultos": {
+          "type": "tarjeta",
+          "settings": {
+            "title": "Adultos",
+            "text": "Terror, elegancia y diversión para la fiesta de la noche de brujas.",
+            "cta": "Ver disfraces de adultos",
+            "url": "/collections/disfraces-adultos",
+            "icon": "fantasma"
+          }
+        },
+        "accesorios": {
+          "type": "tarjeta",
+          "settings": {
+            "title": "Accesorios",
+            "text": "Sombreros, capas, máscaras, pelucas y maquillaje para completar el look.",
+            "cta": "Ver accesorios",
+            "url": "/collections/accesorios-halloween",
+            "icon": "bruja"
+          }
+        }
+      },
+      "block_order": [
+        "ninos",
+        "adultos",
+        "accesorios"
+      ],
+      "settings": {}
+    },
+    "productos_ninos": {
+      "type": "gt-productos",
+      "settings": {
+        "collection": "disfraces-ninos",
+        "eyebrow": "Para los pequeños monstruos",
+        "heading": "Disfraces para niños"
+      }
+    },
+    "productos_adultos": {
+      "type": "gt-productos",
+      "settings": {
+        "collection": "disfraces-adultos",
+        "eyebrow": "Para la fiesta",
+        "heading": "Disfraces para adultos"
+      }
+    },
+    "beneficios": {
+      "type": "gt-beneficios",
+      "blocks": {
+        "b1": {
+          "type": "beneficio",
+          "settings": {
+            "icon": "caja",
+            "title": "Envíos a toda Colombia",
+            "text": "Te lo llevamos a la puerta de tu casa."
+          }
+        },
+        "b2": {
+          "type": "beneficio",
+          "settings": {
+            "icon": "escudo",
+            "title": "Compra segura",
+            "text": "Pagas con tranquilidad y tus datos están protegidos."
+          }
+        },
+        "b3": {
+          "type": "beneficio",
+          "settings": {
+            "icon": "ninos",
+            "title": "Para toda la familia",
+            "text": "Tallas para niños y adultos en cada disfraz."
+          }
+        },
+        "b4": {
+          "type": "beneficio",
+          "settings": {
+            "icon": "calabaza",
+            "title": "Pide a tiempo",
+            "text": "Haz tu pedido antes del 25 de octubre para llegar a Halloween."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {}
+    },
+    "faq": {
+      "type": "gt-faq",
+      "blocks": {
+        "q1": {
+          "type": "pregunta",
+          "settings": {
+            "question": "¿Cuánto tarda en llegar mi pedido?",
+            "answer": "Escribe aquí los tiempos de entrega reales de tu proveedor y transportadora."
+          }
+        },
+        "q2": {
+          "type": "pregunta",
+          "settings": {
+            "question": "¿Cómo elijo la talla?",
+            "answer": "Cada producto trae su guía de tallas. Si dudas, escríbenos y te ayudamos."
+          }
+        },
+        "q3": {
+          "type": "pregunta",
+          "settings": {
+            "question": "¿Puedo cambiar o devolver un disfraz?",
+            "answer": "Escribe aquí tu política de cambios y devoluciones."
+          }
+        },
+        "q4": {
+          "type": "pregunta",
+          "settings": {
+            "question": "¿Cómo puedo pagar?",
+            "answer": "Escribe aquí los medios de pago que tengas activados."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "marquesina",
+    "categorias",
+    "productos_ninos",
+    "productos_adultos",
+    "beneficios",
+    "faq"
+  ]
+}

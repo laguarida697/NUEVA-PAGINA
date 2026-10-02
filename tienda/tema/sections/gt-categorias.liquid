@@ -1,0 +1,72 @@
+{{ 'gt-styles.css' | asset_url | stylesheet_tag }}
+{% style %}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; background: {{ section.settings.bg_color }}; }
+  #shopify-section-{{ section.id }} .gt-cabecera { text-align: {{ section.settings.text_align }}; }
+  #shopify-section-{{ section.id }} .gt-titulo { font-size: {{ section.settings.heading_size }}px; }
+  #shopify-section-{{ section.id }} .gt-texto { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .gt-cat-grid { --gt-cols: {{ section.settings.columns }}; gap: {{ section.settings.gap }}px; }
+  #shopify-section-{{ section.id }} .gt-cat { min-height: {{ section.settings.card_height }}px; }
+  @media (max-width: 989px) { #shopify-section-{{ section.id }} .gt-titulo { font-size: {{ section.settings.heading_size | times: 0.7 | round }}px; } }
+{% endstyle %}
+<section class="gt-section">
+  <div class="gt-container">
+    <div class="gt-cabecera">
+      {%- if section.settings.eyebrow != blank -%}<span class="gt-eyebrow gt-reveal">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="gt-titulo gt-reveal" style="--gt-delay:.06s">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subtitle != blank -%}<p class="gt-texto gt-reveal" style="--gt-delay:.12s;margin-top:14px">{{ section.settings.subtitle | newline_to_br }}</p>{%- endif -%}
+    </div>
+    <div class="gt-cat-grid">
+      {%- for block in section.blocks -%}
+        <a class="gt-cat gt-reveal" style="--gt-delay: {{ forloop.index0 | times: 0.1 }}s" href="{{ block.settings.url | default: '#' }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}<img class="gt-cat__img" src="{{ block.settings.image | image_url: width: 1000 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">{%- endif -%}
+          <span class="gt-cat__icono">{% render 'gt-icono', nombre: block.settings.icon %}</span>
+          <h3 class="gt-cat__titulo">{{ block.settings.title }}</h3>
+          <p class="gt-cat__texto">{{ block.settings.text | newline_to_br }}</p>
+          <span class="gt-cat__cta">{{ block.settings.cta | default: 'Ver todo' }} →</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+<script src="{{ 'gt-scripts.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "GT – Categorías",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Frase pequeña", "default": "Elige tu monstruo" },
+    { "type": "text", "id": "heading", "label": "Título", "default": "¿Quién se disfraza?" },
+    { "type": "textarea", "id": "subtitle", "label": "Texto", "default": "Disfraces para toda la familia, listos para la noche de brujas." },
+    { "type": "color", "id": "bg_color", "label": "Color de fondo", "default": "#120b1a" },
+    { "type": "header", "content": "Diseño" },
+    { "type": "select", "id": "text_align", "label": "Alineación del título", "options": [ { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" } ], "default": "center" },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título", "min": 28, "max": 90, "step": 2, "unit": "px", "default": 64 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto", "min": 13, "max": 24, "step": 1, "unit": "px", "default": 17 },
+    { "type": "range", "id": "columns", "label": "Tarjetas por fila (ordenador)", "min": 1, "max": 4, "step": 1, "default": 3 },
+    { "type": "range", "id": "gap", "label": "Separación entre tarjetas", "min": 8, "max": 48, "step": 2, "unit": "px", "default": 24 },
+    { "type": "range", "id": "card_height", "label": "Altura de las tarjetas", "min": 260, "max": 640, "step": 20, "unit": "px", "default": 420 },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 56 }
+  ],
+  "blocks": [
+    {
+      "type": "tarjeta",
+      "name": "Tarjeta",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Niños" },
+        { "type": "textarea", "id": "text", "label": "Texto", "default": "Brujitas, vampiros, fantasmas y calabazas." },
+        { "type": "text", "id": "cta", "label": "Texto del enlace", "default": "Ver disfraces" },
+        { "type": "url", "id": "url", "label": "Enlace" },
+        { "type": "image_picker", "id": "image", "label": "Imagen (opcional)" },
+        { "type": "select", "id": "icon", "label": "Dibujo", "options": [ { "value": "calabaza", "label": "Calabaza" }, { "value": "murcielago", "label": "Murciélago" }, { "value": "fantasma", "label": "Fantasma" }, { "value": "bruja", "label": "Sombrero de bruja" }, { "value": "ninos", "label": "Niños" }, { "value": "estrella", "label": "Estrella" } ], "default": "calabaza" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    { "name": "GT – Categorías", "blocks": [ { "type": "tarjeta" }, { "type": "tarjeta" }, { "type": "tarjeta" } ] }
+  ]
+}
+{% endschema %}

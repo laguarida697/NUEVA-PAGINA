@@ -1,0 +1,83 @@
+{{ 'gt-styles.css' | asset_url | stylesheet_tag }}
+{% style %}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; background: {{ section.settings.bg_color }}; }
+  #shopify-section-{{ section.id }} .gt-hero__contenido { text-align: {{ section.settings.text_align }}; margin-left: {% if section.settings.text_align == 'center' %}auto{% else %}0{% endif %}; margin-right: {% if section.settings.text_align == 'center' %}auto{% else %}0{% endif %}; }
+  #shopify-section-{{ section.id }} .gt-hero__acciones, #shopify-section-{{ section.id }} .gt-cuenta { justify-content: {% if section.settings.text_align == 'center' %}center{% elsif section.settings.text_align == 'right' %}flex-end{% else %}flex-start{% endif %}; }
+  #shopify-section-{{ section.id }} .gt-titulo { font-size: {{ section.settings.heading_size }}px; color: {{ section.settings.title_color }}; }
+  #shopify-section-{{ section.id }} .gt-texto { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .gt-hero { min-height: {{ section.settings.min_height }}px; }
+  #shopify-section-{{ section.id }} .gt-luna { display: {% if section.settings.show_moon %}block{% else %}none{% endif %}; }
+  #shopify-section-{{ section.id }} .gt-murcielagos { display: {% if section.settings.show_bats %}block{% else %}none{% endif %}; }
+  @media (max-width: 989px) { #shopify-section-{{ section.id }} .gt-titulo { font-size: {{ section.settings.heading_size | times: 0.66 | round }}px; } }
+{% endstyle %}
+
+<section class="gt-section gt-hero">
+  {%- if section.settings.image != blank -%}
+    <img class="gt-hero__img" src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager" fetchpriority="high">
+  {%- endif -%}
+  <div class="gt-luna"></div>
+  <div class="gt-murcielagos" aria-hidden="true">
+    <span class="gt-murcielago" style="--y:14%;--s:60px;--d:15s;--delay:0s">{% render 'gt-icono', nombre: 'murcielago' %}</span>
+    <span class="gt-murcielago" style="--y:34%;--s:38px;--d:19s;--delay:3s">{% render 'gt-icono', nombre: 'murcielago' %}</span>
+    <span class="gt-murcielago" style="--y:58%;--s:50px;--d:17s;--delay:7s">{% render 'gt-icono', nombre: 'murcielago' %}</span>
+    <span class="gt-murcielago" style="--y:22%;--s:30px;--d:22s;--delay:11s">{% render 'gt-icono', nombre: 'murcielago' %}</span>
+  </div>
+  <div class="gt-container">
+    <div class="gt-hero__contenido">
+      {%- if section.settings.eyebrow != blank -%}<span class="gt-eyebrow gt-reveal">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h1 class="gt-titulo gt-reveal" style="--gt-delay:.08s">{{ section.settings.headline | newline_to_br }}</h1>
+      <p class="gt-texto gt-reveal" style="--gt-delay:.16s;margin-top:20px">{{ section.settings.body | newline_to_br }}</p>
+      <div class="gt-hero__acciones gt-reveal" style="--gt-delay:.24s">
+        {%- if section.settings.btn1_text != blank -%}<a class="gt-btn gt-btn--primario" href="{{ section.settings.btn1_url | default: '/collections/disfraces-ninos' }}">{{ section.settings.btn1_text }}</a>{%- endif -%}
+        {%- if section.settings.btn2_text != blank -%}<a class="gt-btn gt-btn--borde" href="{{ section.settings.btn2_url | default: '/collections/disfraces-adultos' }}">{{ section.settings.btn2_text }}</a>{%- endif -%}
+      </div>
+      {%- if section.settings.show_countdown -%}
+        <div class="gt-cuenta gt-reveal" style="--gt-delay:.32s" data-gt-fecha="{{ section.settings.countdown_date }}">
+          {%- if section.settings.countdown_label != blank -%}<p class="gt-cuenta__titulo">{{ section.settings.countdown_label }}</p>{%- endif -%}
+          <div class="gt-cuenta__bloque"><span class="gt-cuenta__num" data-u="d">0</span><span class="gt-cuenta__lbl">días</span></div>
+          <div class="gt-cuenta__bloque"><span class="gt-cuenta__num" data-u="h">00</span><span class="gt-cuenta__lbl">horas</span></div>
+          <div class="gt-cuenta__bloque"><span class="gt-cuenta__num" data-u="m">00</span><span class="gt-cuenta__lbl">min</span></div>
+          <div class="gt-cuenta__bloque"><span class="gt-cuenta__num" data-u="s">00</span><span class="gt-cuenta__lbl">seg</span></div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+<script src="{{ 'gt-scripts.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "GT – Portada Halloween",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Textos" },
+    { "type": "text", "id": "eyebrow", "label": "Frase pequeña superior", "default": "Halloween en Colombia" },
+    { "type": "textarea", "id": "headline", "label": "Título", "default": "Esta noche\nnadie se salva" },
+    { "type": "textarea", "id": "body", "label": "Texto", "default": "Disfraces para niños y adultos, accesorios y todo lo que necesitas para la noche más terrorífica del año." },
+    { "type": "header", "content": "Botones" },
+    { "type": "text", "id": "btn1_text", "label": "Texto botón 1", "default": "Disfraces niños" },
+    { "type": "url", "id": "btn1_url", "label": "Enlace botón 1" },
+    { "type": "text", "id": "btn2_text", "label": "Texto botón 2", "default": "Disfraces adultos" },
+    { "type": "url", "id": "btn2_url", "label": "Enlace botón 2" },
+    { "type": "header", "content": "Cuenta atrás" },
+    { "type": "checkbox", "id": "show_countdown", "label": "Mostrar cuenta atrás", "default": true },
+    { "type": "text", "id": "countdown_date", "label": "Fecha final (AAAA-MM-DD)", "default": "2026-10-31" },
+    { "type": "text", "id": "countdown_label", "label": "Texto sobre la cuenta atrás", "default": "Faltan para Halloween" },
+    { "type": "header", "content": "Imagen y adornos" },
+    { "type": "image_picker", "id": "image", "label": "Imagen de fondo (opcional)" },
+    { "type": "color", "id": "bg_color", "label": "Color de fondo", "default": "#120b1a" },
+    { "type": "checkbox", "id": "show_moon", "label": "Mostrar luna", "default": true },
+    { "type": "checkbox", "id": "show_bats", "label": "Mostrar murciélagos volando", "default": true },
+    { "type": "header", "content": "Tipografía y diseño" },
+    { "type": "select", "id": "text_align", "label": "Alineación", "options": [ { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" } ], "default": "left" },
+    { "type": "color", "id": "title_color", "label": "Color del título", "default": "#f6efe2" },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título", "min": 40, "max": 140, "step": 2, "unit": "px", "default": 96 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto", "min": 14, "max": 26, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "min_height", "label": "Altura mínima", "min": 400, "max": 900, "step": 20, "unit": "px", "default": 680 },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 0 }
+  ],
+  "presets": [ { "name": "GT – Portada Halloween" } ]
+}
+{% endschema %}

@@ -1,0 +1,20 @@
+{%- comment -%} Uso: {% render 'gt-icono', nombre: 'calabaza' %} {%- endcomment -%}
+{%- case nombre -%}
+  {%- when 'murcielago' -%}
+    <svg viewBox="0 0 64 40" fill="currentColor" aria-hidden="true"><path d="M32 8c-2 0-3 2-3 4-3-2-6-3-10-2-4 1-7 4-9 8 3-1 6 0 8 2 1-2 4-3 6-2 1 2 3 4 5 5 0 5 1 9 3 12 2-3 3-7 3-12 2-1 4-3 5-5 2-1 5 0 6 2 2-2 5-3 8-2-2-4-5-7-9-8-4-1-7 0-10 2 0-2-1-4-3-4z"/></svg>
+  {%- when 'fantasma' -%}
+    <svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M32 6C20 6 12 15 12 27v28l7-5 6 5 7-5 7 5 6-5 7 5V27C52 15 44 6 32 6zm-8 22a4 4 0 110 8 4 4 0 010-8zm16 0a4 4 0 110 8 4 4 0 010-8z" fill-rule="evenodd"/></svg>
+  {%- when 'bruja' -%}
+    <svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M34 4l8 24h-4l-4-12-4 12h-6L34 4zM8 44c10-6 20-8 24-8s14 2 24 8c-2 4-8 8-24 8S10 48 8 44zm16-12h16v6H24z"/></svg>
+  {%- when 'caja' -%}
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round" aria-hidden="true"><path d="M8 20l24-12 24 12v26L32 58 8 46V20zM8 20l24 12 24-12M32 32v26"/></svg>
+  {%- when 'escudo' -%}
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M32 6l20 8v16c0 14-9 24-20 28C21 54 12 44 12 30V14l20-8z"/><path d="M22 32l8 8 14-16"/></svg>
+  {%- when 'estrella' -%}
+    <svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M32 4l8 18 20 2-15 13 5 20-18-10-18 10 5-20L4 24l20-2z"/></svg>
+  {%- when 'ninos' -%}
+    <svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><circle cx="22" cy="18" r="9"/><path d="M6 56c0-14 7-22 16-22s16 8 16 22H6z"/><circle cx="46" cy="30" r="6"/><path d="M36 56c0-9 4-15 10-15s10 6 10 15H36z"/></svg>
+  {%- else -%}
+    {%- comment -%} calabaza {%- endcomment -%}
+    <svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M34 6c0 4-2 7-4 9 3 0 6 1 8 3 8-2 20 4 20 20 0 14-12 22-26 22S6 52 6 38c0-16 12-22 20-20 2-2 5-3 8-3-1-3 0-6 0-9h0zM20 32l6 8-12 0zm24 0l6 8H38zM24 46c4 4 12 4 16 0l-4-3-4 3-4-3z" fill-rule="evenodd"/></svg>
+{%- endcase -%}
