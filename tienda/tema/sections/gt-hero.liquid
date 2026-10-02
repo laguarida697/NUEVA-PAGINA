@@ -6,7 +6,11 @@
   #shopify-section-{{ section.id }} .gt-titulo { font-size: {{ section.settings.heading_size }}px; color: {{ section.settings.title_color }}; }
   #shopify-section-{{ section.id }} .gt-texto { font-size: {{ section.settings.body_size }}px; }
   #shopify-section-{{ section.id }} .gt-hero { min-height: {{ section.settings.min_height }}px; }
-  #shopify-section-{{ section.id }} .gt-luna { display: {% if section.settings.show_moon %}block{% else %}none{% endif %}; }
+  #shopify-section-{{ section.id }} .gt-luna-wrap { display: {% if section.settings.show_moon %}block{% else %}none{% endif %}; }
+  #shopify-section-{{ section.id }} .gt-bruja { display: {% if section.settings.show_witch %}block{% else %}none{% endif %}; }
+  #shopify-section-{{ section.id }} .gt-escena, #shopify-section-{{ section.id }} .gt-ojos { display: {% if section.settings.show_scene %}block{% else %}none{% endif %}; }
+  #shopify-section-{{ section.id }} .gt-niebla { display: {% if section.settings.show_fog %}block{% else %}none{% endif %}; }
+  #shopify-section-{{ section.id }} .gt-rayo { display: {% if section.settings.show_lightning %}block{% else %}none{% endif %}; }
   #shopify-section-{{ section.id }} .gt-murcielagos { display: {% if section.settings.show_bats %}block{% else %}none{% endif %}; }
   @media (max-width: 989px) { #shopify-section-{{ section.id }} .gt-titulo { font-size: {{ section.settings.heading_size | times: 0.66 | round }}px; } }
 {% endstyle %}
@@ -15,13 +19,19 @@
   {%- if section.settings.image != blank -%}
     <img class="gt-hero__img" src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager" fetchpriority="high">
   {%- endif -%}
-  <div class="gt-luna"></div>
+  <div class="gt-luna-wrap"><div class="gt-luna"></div><div class="gt-bruja"><svg viewBox="0 0 220 130" fill="currentColor" aria-hidden="true"><path d="M6 100 L196 74" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M-6 88 L26 93 L30 99 L26 106 L-6 110 L8 99Z"/><path d="M92 84 C96 58 116 50 134 58 L156 80 C136 86 112 88 92 84Z"/><path d="M96 82 C70 90 52 98 36 106 C60 98 80 96 100 90Z"/><circle cx="134" cy="46" r="10"/><path d="M118 42 C122 26 134 14 160 4 C146 16 144 28 146 42Z"/><path d="M104 46 Q132 36 160 46 Q132 54 104 46Z"/><path d="M126 52 C112 56 104 64 98 76 C112 70 122 66 130 58Z"/></svg></div></div>
+  <div class="gt-rayo"></div>
   <div class="gt-murcielagos" aria-hidden="true">
     <span class="gt-murcielago" style="--y:14%;--s:60px;--d:15s;--delay:0s">{% render 'gt-icono', nombre: 'murcielago' %}</span>
     <span class="gt-murcielago" style="--y:34%;--s:38px;--d:19s;--delay:3s">{% render 'gt-icono', nombre: 'murcielago' %}</span>
     <span class="gt-murcielago" style="--y:58%;--s:50px;--d:17s;--delay:7s">{% render 'gt-icono', nombre: 'murcielago' %}</span>
     <span class="gt-murcielago" style="--y:22%;--s:30px;--d:22s;--delay:11s">{% render 'gt-icono', nombre: 'murcielago' %}</span>
   </div>
+  <div class="gt-escena" aria-hidden="true"><svg viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice"><g fill="#07040c"><path d="M0 400 V300 C180 270 320 300 480 285 C640 270 760 310 960 290 C1140 272 1300 300 1440 280 V400Z"/><path d="M920 300 L920 205 L945 205 L945 175 L975 120 L1005 175 L1005 205 L1090 205 L1090 175 L1120 80 L1150 175 L1150 205 L1230 205 L1230 300Z"/><path d="M1090 205 L1230 205 L1160 150Z" opacity=".0"/><path d="M905 205 L1075 205 L990 150 L1075 150 L1245 205 L1245 190 L1160 120 L1075 150 L990 150Z" opacity="0"/><path d="M200 300 C204 250 198 220 190 190 M190 190 C170 170 150 160 130 140 M190 190 C205 165 225 150 250 135 M198 230 C180 220 160 218 140 205 M200 215 C220 200 240 198 262 190 M130 140 C122 128 118 118 108 108 M250 135 C256 122 266 116 276 104" stroke="#07040c" stroke-width="7" stroke-linecap="round" fill="none"/><path d="M1340 300 C1344 260 1338 235 1332 210 M1332 210 C1314 196 1300 188 1282 170 M1332 210 C1350 192 1366 184 1388 172 M1338 245 C1320 240 1306 238 1292 226" stroke="#07040c" stroke-width="6" stroke-linecap="round" fill="none"/><rect x="620" y="262" width="5" height="40"/><rect x="600" y="262" width="45" height="5"/></g><g><rect class="gt-ventana" x="936" y="225" width="16" height="22" rx="2"/><rect class="gt-ventana" x="1112" y="120" width="16" height="22" rx="2"/><rect class="gt-ventana" x="1160" y="228" width="16" height="22" rx="2"/><rect class="gt-ventana" x="1190" y="228" width="16" height="22" rx="2"/><rect class="gt-ventana" x="968" y="150" width="14" height="18" rx="2"/></g><g fill="#05030a"><path d="M700 120c8-6 14-2 18 6 6-8 14-8 20 0-6 2-12 6-14 12-4-6-10-8-16-6zM520 80c6-4 11-1 14 5 5-6 11-6 16 0-5 1-9 4-11 9-3-5-8-6-13-4z" opacity=".9"/></g></svg></div>
+  <span class="gt-ojos" style="--x:12%;--y:6%;--delay:1s"><i></i><i></i></span>
+  <span class="gt-ojos" style="--x:46%;--y:3%;--delay:3.5s"><i></i><i></i></span>
+  <span class="gt-ojos" style="--x:63%;--y:8%;--delay:5s"><i></i><i></i></span>
+  <div class="gt-niebla"></div><div class="gt-niebla gt-niebla--2" style="bottom:-4%"></div><div class="gt-vineta"></div>
   <div class="gt-container">
     <div class="gt-hero__contenido">
       {%- if section.settings.eyebrow != blank -%}<span class="gt-eyebrow gt-reveal">{{ section.settings.eyebrow }}</span>{%- endif -%}
@@ -67,6 +77,10 @@
     { "type": "image_picker", "id": "image", "label": "Imagen de fondo (opcional)" },
     { "type": "color", "id": "bg_color", "label": "Color de fondo", "default": "#120b1a" },
     { "type": "checkbox", "id": "show_moon", "label": "Mostrar luna", "default": true },
+    { "type": "checkbox", "id": "show_witch", "label": "Mostrar bruja volando", "default": true },
+    { "type": "checkbox", "id": "show_scene", "label": "Mostrar casa embrujada y árboles", "default": true },
+    { "type": "checkbox", "id": "show_fog", "label": "Mostrar niebla", "default": true },
+    { "type": "checkbox", "id": "show_lightning", "label": "Mostrar rayos", "default": true },
     { "type": "checkbox", "id": "show_bats", "label": "Mostrar murciélagos volando", "default": true },
     { "type": "header", "content": "Tipografía y diseño" },
     { "type": "select", "id": "text_align", "label": "Alineación", "options": [ { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" } ], "default": "left" },
