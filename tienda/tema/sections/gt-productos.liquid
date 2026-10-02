@@ -23,7 +23,9 @@
               {%- if product.featured_image != blank -%}
                 <img src="{{ product.featured_image | image_url: width: 700 }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy" width="700" height="700">
               {%- else -%}
-                {% render 'gt-icono', nombre: 'calabaza' %}
+                {%- assign cara = 'calabaza' -%}
+                {%- for t in product.tags -%}{%- if t contains 'cara-' -%}{%- assign cara = t | remove: 'cara-' -%}{%- endif -%}{%- endfor -%}
+                {% render 'gt-mascara', nombre: cara %}
               {%- endif -%}
               {%- if product.compare_at_price > product.price -%}<span class="gt-prod__etiqueta">Oferta</span>{%- elsif product.available == false -%}<span class="gt-prod__etiqueta">Agotado</span>{%- endif -%}
             </div>

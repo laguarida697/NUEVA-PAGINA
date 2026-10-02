@@ -148,12 +148,24 @@
         "q4"
       ],
       "settings": {}
+    },
+    "productos_mascaras": {
+      "type": "gt-productos",
+      "settings": {
+        "collection": "accesorios-halloween",
+        "eyebrow": "Completa tu disfraz",
+        "heading": "Máscaras de terror",
+        "columns": 3,
+        "limit": 6,
+        "btn_text": "Ver todos los accesorios"
+      }
     }
   },
   "order": [
     "hero",
     "marquesina",
     "categorias",
+    "productos_mascaras",
     "productos_ninos",
     "productos_adultos",
     "beneficios",

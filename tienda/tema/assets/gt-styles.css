@@ -157,3 +157,6 @@ body { background: var(--gt-noche); }
 
 .gt-hero .gt-titulo { text-shadow: 0 4px 24px rgba(5,2,10,.85), 0 0 3px rgba(5,2,10,.9); }
 .gt-hero .gt-texto { text-shadow: 0 2px 12px rgba(5,2,10,.9); }
+
+.gt-prod__media svg { width: 58%; opacity: 1; color: inherit; filter: drop-shadow(0 8px 18px rgba(0,0,0,.5)); transition: transform .5s var(--gt-ease); }
+.gt-prod:hover .gt-prod__media svg { transform: scale(1.08) rotate(-3deg); }

@@ -1,0 +1,39 @@
+{%- comment -%} Uso: {% render 'gt-mascara', nombre: 'calavera' %} — dibujo de máscara mientras el producto no tiene foto {%- endcomment -%}
+<svg viewBox="0 0 100 110" aria-hidden="true">
+{%- case nombre -%}
+  {%- when 'calavera' -%}
+    <path d="M50 6C26 6 12 24 12 46c0 14 6 22 14 28v16c0 4 3 6 6 6h36c3 0 6-2 6-6V74c8-6 14-14 14-28C88 24 74 6 50 6z" fill="#efe7d4"/>
+    <ellipse cx="33" cy="48" rx="12" ry="14" fill="#120b1a"/><ellipse cx="67" cy="48" rx="12" ry="14" fill="#120b1a"/>
+    <circle cx="33" cy="49" r="3" fill="#ff3b1f"/><circle cx="67" cy="49" r="3" fill="#ff3b1f"/>
+    <path d="M50 62l-6 12h12z" fill="#120b1a"/><path d="M30 86h40M38 78v22M46 78v22M54 78v22M62 78v22" stroke="#120b1a" stroke-width="3" fill="none"/>
+  {%- when 'payaso' -%}
+    <circle cx="20" cy="26" r="14" fill="#ff7a1a"/><circle cx="80" cy="26" r="14" fill="#ff7a1a"/><circle cx="50" cy="18" r="12" fill="#ff7a1a"/>
+    <ellipse cx="50" cy="60" rx="38" ry="44" fill="#f4efe6"/>
+    <path d="M22 46l18 6M78 46L60 52" stroke="#120b1a" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="34" cy="56" rx="7" ry="6" fill="#120b1a"/><ellipse cx="66" cy="56" rx="7" ry="6" fill="#120b1a"/>
+    <circle cx="50" cy="68" r="9" fill="#d41f1f"/>
+    <path d="M24 82c10 22 42 22 52 0-10 10-42 10-52 0z" fill="#d41f1f"/><path d="M30 86l4 8M42 90l2 6M56 90l-2 6M70 86l-4 8" stroke="#f4efe6" stroke-width="3"/>
+  {%- when 'vampiro' -%}
+    <path d="M14 56C14 28 28 10 50 10s36 18 36 46c0 30-16 48-36 48S14 86 14 56z" fill="#e9e0ef"/>
+    <path d="M14 50C20 24 36 10 50 22 64 10 80 24 86 50 76 34 64 30 50 36 36 30 24 34 14 50z" fill="#120b1a"/>
+    <path d="M26 50l16 5M74 50l-16 5" stroke="#120b1a" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="34" cy="60" rx="6" ry="5" fill="#ff2a1a"/><ellipse cx="66" cy="60" rx="6" ry="5" fill="#ff2a1a"/>
+    <path d="M32 84c10 6 26 6 36 0 0 0-4 8-18 8s-18-8-18-8z" fill="#7a0f1a"/><path d="M38 86l3 14 4-12M62 86l-3 14-4-12" fill="#fff"/>
+  {%- when 'zombi' -%}
+    <path d="M16 56C16 28 30 12 50 12s34 16 34 44c0 28-14 46-34 46S16 84 16 56z" fill="#8fb06e"/>
+    <path d="M30 22l14 6M62 20l8 10M22 60h16M62 74l14-6" stroke="#2f4a22" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M62 74l8 8M68 70l8 8" stroke="#2f4a22" stroke-width="3"/>
+    <circle cx="34" cy="52" r="11" fill="#f2f0d8"/><circle cx="36" cy="54" r="4" fill="#120b1a"/>
+    <circle cx="68" cy="50" r="6" fill="#f2f0d8"/><circle cx="68" cy="51" r="2.5" fill="#120b1a"/>
+    <path d="M32 84c10-6 26-6 36 0" stroke="#2f1a1a" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M40 82v8M50 80v9M60 82v8" stroke="#2f1a1a" stroke-width="3"/>
+  {%- when 'fantasma' -%}
+    <path d="M50 6C28 6 14 22 14 44v54l12-8 12 8 12-8 12 8 12-8 12 8V44C86 22 72 6 50 6z" fill="#f4f0fa"/>
+    <ellipse cx="36" cy="46" rx="8" ry="11" fill="#120b1a"/><ellipse cx="64" cy="46" rx="8" ry="11" fill="#120b1a"/>
+    <ellipse cx="50" cy="72" rx="9" ry="13" fill="#120b1a"/>
+  {%- else -%}
+    <path d="M50 24c-6-8-4-14 0-18 2 6 8 10 8 18z" fill="#4c8a2b"/>
+    <path d="M50 22C18 14 4 44 8 66s20 38 42 38 34-16 42-38S82 14 50 22z" fill="#ff7a1a"/>
+    <path d="M50 22c-14 14-14 66 0 82M50 22c14 14 14 66 0 82" stroke="#d9570a" stroke-width="3" fill="none"/>
+    <path d="M24 52l18 4-14 10zM76 52l-18 4 14 10z" fill="#120b1a"/><path d="M50 62l-5 10h10z" fill="#120b1a"/>
+    <path d="M24 78c10 14 42 14 52 0l-10 4-6-6-6 6-6-6-6 6z" fill="#120b1a"/>
+{%- endcase -%}
+</svg>
