@@ -1,0 +1,149 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Una mirada extendida — tributo de fans</title>
+<style>
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:fixed;inset:0;overflow:hidden;background:#000;font-family:'Liberation Sans','Helvetica Neue',Arial,sans-serif}
+svg{position:absolute;inset:0;width:100%;height:100%}
+.txt{position:absolute;left:0;right:0;text-align:center;color:#fff;font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:.12em;opacity:0;will-change:transform,opacity}
+#cap{top:13%;font-size:min(9vw,15vh);text-shadow:0 0 30px rgba(255,60,160,.9),0 6px 40px rgba(0,0,0,.6)}
+#titulo{top:var(--ty,24%);font-size:min(8.6vw,13vh);line-height:1;letter-spacing:.05em;background:linear-gradient(180deg,#fff 10%,#ffd1e8 40%,#ff5fb0 75%,#ff9a3c 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 22px rgba(255,70,170,.8)) drop-shadow(0 6px 30px rgba(0,0,0,.7))}
+#sub{top:var(--sy,61%);font-size:min(2.6vw,4.2vh);letter-spacing:.42em;font-weight:600;font-style:normal;color:#ffe9f4;text-shadow:0 0 18px rgba(255,90,170,.9)}
+#nota{bottom:5%;font-size:min(1.6vw,2.6vh);letter-spacing:.22em;font-weight:500;font-style:normal;color:#ffd6e8;opacity:0}
+#barra1,#barra2{position:absolute;left:0;right:0;height:var(--bar,0);background:#000;z-index:5}
+#barra1{top:0}#barra2{bottom:0}
+#vineta{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.65) 100%);pointer-events:none;z-index:4}
+#grano{position:absolute;inset:-50%;width:200%;height:200%;opacity:.07;pointer-events:none;z-index:4;mix-blend-mode:overlay}
+#fade{position:absolute;inset:0;background:#000;z-index:6;opacity:1}
+
+.poster #titulo{font-size:13.2vw;--ty:11%}
+.poster #sub{font-size:2.1vw;letter-spacing:.24em;top:71%}
+.poster #nota{font-size:1.6vw;bottom:5%}
+</style></head><body>
+<div id="stage">
+<svg id="svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop id="s0" offset="0" stop-color="#14052e"/><stop id="s1" offset=".55" stop-color="#8a1c77"/><stop id="s2" offset="1" stop-color="#ff7a3c"/></linearGradient>
+ <linearGradient id="sol" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0a0"/><stop offset=".5" stop-color="#ff8a3d"/><stop offset="1" stop-color="#ff2f93"/></linearGradient>
+ <linearGradient id="mar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff5aa8"/><stop offset=".25" stop-color="#6a1b8e"/><stop offset="1" stop-color="#0b0220"/></linearGradient>
+ <linearGradient id="calle" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a0f55"/><stop offset="1" stop-color="#07010f"/></linearGradient>
+ <mask id="rayas"><rect width="1600" height="900" fill="#fff"/><g id="rayasg" fill="#000"></g></mask>
+ <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+ <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<g id="estrellas"></g>
+<circle id="halo" cx="800" cy="560" r="330" fill="#ff4fa3" opacity=".55" filter="url(#glow)"/>
+<g mask="url(#rayas)"><circle id="sol" cx="800" cy="560" r="190" fill="url(#sol)"/></g>
+<g id="nubes" opacity=".5"></g>
+<g id="lejos" fill="#2a0a4a"></g>
+<g id="cerca" fill="#12052a"></g>
+<g id="luces"></g>
+<g id="mar"><rect id="marr" x="0" y="560" width="1600" height="340" fill="url(#mar)"/><g id="reflejo" fill="#ffb36b"></g></g>
+<g id="ruta" opacity="0"><rect x="0" y="560" width="1600" height="340" fill="url(#calle)"/><g id="rejilla" stroke="#ff4fc0" stroke-width="2.5" fill="none" opacity=".85"></g><g id="lineas" fill="#ffe27a"></g></g>
+<g id="auto" opacity="0">
+ <ellipse cx="0" cy="62" rx="210" ry="22" fill="#ff2f93" opacity=".6" filter="url(#glow2)"/>
+ <path d="M-190 40 L-175 -10 Q-170 -30 -140 -34 L-95 -78 Q-80 -92 -50 -92 L50 -92 Q80 -92 95 -78 L140 -34 Q170 -30 175 -10 L190 40 Q190 58 170 58 L-170 58 Q-190 58 -190 40Z" fill="#0c0316"/>
+ <path d="M-86 -72 L-62 -84 L62 -84 L86 -72 L112 -38 L-112 -38Z" fill="#2b0f4a"/>
+ <rect x="-170" y="-18" width="92" height="16" rx="6" fill="#ff1f6e"/><rect x="78" y="-18" width="92" height="16" rx="6" fill="#ff1f6e"/>
+ <rect x="-170" y="-18" width="92" height="16" rx="6" fill="#ff1f6e" filter="url(#glow2)"/><rect x="78" y="-18" width="92" height="16" rx="6" fill="#ff1f6e" filter="url(#glow2)"/>
+ <rect x="-34" y="6" width="68" height="20" rx="4" fill="#e9dff7"/>
+ <rect x="-176" y="46" width="62" height="26" rx="8" fill="#050109"/><rect x="114" y="46" width="62" height="26" rx="8" fill="#050109"/>
+</g>
+<g id="palmaI" fill="#07010f"></g><g id="palmaD" fill="#07010f"></g>
+</svg>
+<div id="cap" class="txt"></div>
+<div id="titulo" class="txt">UNA MIRADA<br>EXTENDIDA</div>
+<div id="sub" class="txt">TRIBUTO DE FANS · CREACIÓN ORIGINAL</div>
+<div id="nota" class="txt">Pieza animada inspirada en el ambiente de neón y atardecer. No oficial.</div>
+<div id="barra1"></div><div id="barra2"></div><div id="vineta"></div>
+<svg id="grano" viewBox="0 0 200 200"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/></filter><rect width="200" height="200" filter="url(#n)"/></svg>
+<div id="fade"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), lerp=(a,b,t)=>a+(b-a)*t;
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2, out=t=>1-Math.pow(1-t,3);
+const seg=(t,a,b)=>clamp((t-a)/(b-a));
+let seed=7; const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+function el(tag,at,p){const e=document.createElementNS(NS,tag);for(const k in at)e.setAttribute(k,at[k]);p&&p.appendChild(e);return e}
+// estrellas
+for(let i=0;i<90;i++) el('circle',{cx:rnd()*1600,cy:rnd()*380,r:rnd()*1.6+.3,fill:'#fff',opacity:rnd()*.8+.2,class:'st'},$('estrellas'));
+// nubes
+for(let i=0;i<6;i++){const y=250+rnd()*160,x=rnd()*1600;for(let j=0;j<3;j++)el('ellipse',{cx:x+j*60,cy:y+rnd()*10,rx:120+rnd()*80,ry:8+rnd()*6,fill:'#ff8fc4'},$('nubes'));}
+// rayas del sol
+(function(){const g=$('rayasg');let y=560-60;for(let i=0;i<9;i++){const h=4+i*3.2;el('rect',{x:600,y:y+i*26,width:400,height:h},g)}})();
+// skyline
+function skyline(g,base,hmin,hmax,lights,dens){let x=-40;while(x<1700){const w=36+rnd()*70,h=hmin+rnd()*(hmax-hmin);el('rect',{x,y:base-h,width:w,height:h},g);
+ if(lights&&rnd()<dens){for(let k=0;k<4;k++){if(rnd()<.6)el('rect',{x:x+6+rnd()*(w-14),y:base-h+10+rnd()*(h-20),width:4,height:6,fill:['#ff4fc0','#4ff0ff','#ffd24a'][(rnd()*3)|0],opacity:.9},$('luces'))}}
+ if(rnd()<.25)el('rect',{x:x+w/2-2,y:base-h-26,width:4,height:26},g);x+=w+rnd()*10}}
+skyline($('lejos'),562,60,190,true,.7);skyline($('cerca'),566,40,120,true,.5);
+// reflejo
+for(let i=0;i<14;i++)el('rect',{x:800-120+i*0,y:580+i*20,width:240-i*8,height:3+i*.5,rx:2,class:'rf',opacity:.5},$('reflejo'));
+// rejilla
+const rej=$('rejilla');for(let i=-12;i<=12;i++){el('line',{x1:800+i*70,y1:560,x2:800+i*520,y2:900,class:'vl'},rej)}
+const hls=[];for(let i=0;i<14;i++)hls.push(el('line',{x1:0,x2:1600,y1:0,y2:0},rej));
+const lin=$('lineas');const dash=[];for(let i=0;i<8;i++)dash.push(el('polygon',{points:'0,0'},lin));
+// palmeras
+function palma(g,flip){const s=flip?-1:1;el('path',{d:`M0 900 C${40*s} 700 ${10*s} 520 ${-30*s} 340 L${-10*s} 336 C${40*s} 520 ${80*s} 700 ${46*s} 900Z`},g);
+ for(let i=0;i<9;i++){const a=-160+i*40,len=210+rnd()*90;const f=el('path',{d:`M0 0 Q${len*.5} ${-60-rnd()*30} ${len} ${30+rnd()*50} Q${len*.5} ${-18} 0 8Z`,class:'fr',transform:`translate(${-20*s},338) rotate(${a})`,'data-a':a},g)}}
+palma($('palmaI'),false);palma($('palmaD'),true);
+const PI=$('palmaI'),PD=$('palmaD');
+function skyCols(t){ // 0 amanecer -> 1 atardecer fucsia -> 2 noche
+ const A=[['#1a0a3a','#c2307a','#ffb347'],['#14052e','#8a1c77','#ff7a3c'],['#0a0220','#4b0f6e','#ff2f93']];
+ const k=clamp(t,0,2),i=Math.min(1,Math.floor(k)),f=k-i;
+ const m=(a,b)=>{const p=h=>[1,3,5].map(j=>parseInt(h.substr(j,2),16));const x=p(a),y=p(b);return '#'+x.map((v,n)=>Math.round(lerp(v,y[n],f)).toString(16).padStart(2,'0')).join('')};
+ return [0,1,2].map(n=>m(A[i][n],A[i+1][n]))}
+const Dur=22;const POSTER=new URLSearchParams(location.search).get('poster');if(POSTER)document.getElementById('stage').classList.add('poster');
+function render(t){
+ const tt=t;
+ // cielo
+ const c=skyCols(clamp(tt/16*2,0,2));$('s0').setAttribute('stop-color',c[0]);$('s1').setAttribute('stop-color',c[1]);$('s2').setAttribute('stop-color',c[2]);
+ // sol: sale 0-5, baja un poco en 10-16, final fuerte
+ const solY=tt<5?lerp(720,560,out(seg(tt,0,5))):tt<16?lerp(560,585,seg(tt,5,16)):lerp(585,430,out(seg(tt,16,19)));
+ $('sol').setAttribute('cy',solY);$('sol').setAttribute('r',190+70*out(seg(tt,16,19)));$('halo').setAttribute('cy',solY);$('halo').setAttribute('r',330+20*Math.sin(tt*1.5)+120*out(seg(tt,16,19)));
+ $('rayasg').setAttribute('transform',`translate(0,${solY-560})`);
+ document.querySelectorAll('.st').forEach((s,i)=>s.setAttribute('opacity',clamp((tt-6)/6,0,1)*(.4+.6*Math.abs(Math.sin(tt*2+i)))));
+ // parallax horizontal skyline
+ const pan=tt<10?lerp(0,-90,seg(tt,2,10)):-90-(tt-10)*6;
+ $('lejos').setAttribute('transform',`translate(${pan*.5},0)`);$('cerca').setAttribute('transform',`translate(${pan*.9},0)`);$('luces').setAttribute('transform',`translate(${pan*.7},0)`);
+ $('nubes').setAttribute('transform',`translate(${-tt*10},0)`);
+ // reflejo parpadeo
+ document.querySelectorAll('.rf').forEach((r,i)=>r.setAttribute('opacity',.35+.35*Math.sin(tt*3+i)));
+ $('reflejo').setAttribute('transform',`translate(0,${solY-560})`);
+ // ruta vs mar
+ const ru=ease(seg(tt,9.5,11.5))*(1-ease(seg(tt,16,17.5)));
+ $('ruta').setAttribute('opacity',ru);$('mar').setAttribute('opacity',1-ru);
+ document.querySelectorAll('.vl').forEach(l=>l.setAttribute('stroke-opacity',.9));
+ hls.forEach((l,i)=>{const p=((i/14)+tt*.55)%1,y=560+Math.pow(p,2.4)*340;l.setAttribute('y1',y);l.setAttribute('y2',y);l.setAttribute('stroke-opacity',.2+p*.8);l.setAttribute('stroke-width',1+p*3)});
+ dash.forEach((d,i)=>{const p=((i/8)+tt*.9)%1,y0=560+Math.pow(p,2.2)*340,y1=560+Math.pow(Math.min(1,p+.08),2.2)*340,w0=2+p*14,w1=2+Math.min(1,p+.08)*14;d.setAttribute('points',`${800-w0},${y0} ${800+w0},${y0} ${800+w1},${y1} ${800-w1},${y1}`)});
+ // auto
+ const au=ease(seg(tt,10.5,12));const af=1-ease(seg(tt,16,17.2));
+ $('auto').setAttribute('opacity',au*af);
+ $('auto').setAttribute('transform',`translate(${800+Math.sin(tt*.9)*60},${lerp(790,735,au)+Math.sin(tt*9)*1.5}) scale(${lerp(.8,1.25,au)})`);
+ // palmeras balanceo + entrada
+ const sw=Math.sin(tt*1.3)*3;
+ document.querySelectorAll('.fr').forEach((f,i)=>{const a=+f.getAttribute('data-a');const base=f.getAttribute('transform').replace(/rotate\([^)]*\)/,'');f.setAttribute('transform',base+`rotate(${a+sw*(i%2?1:-1)})`)});
+ const pe=tt<8?1:1-ease(seg(tt,8,10.5))*.0;
+ if(POSTER){PI.setAttribute('transform','translate(585,120) scale(.8)');PD.setAttribute('transform','translate(1020,120) scale(.8)')}else{
+ PI.setAttribute('transform',`translate(${lerp(-260,180,out(seg(tt,.2,3.5)))+(tt>13?-ease(seg(tt,13,17))*320:0)},${tt<13?0:0}) scale(1.1)`);
+ PD.setAttribute('transform',`translate(${lerp(1900,1430,out(seg(tt,.6,3.8)))+(tt>13?ease(seg(tt,13,17))*320:0)},0) scale(1.1)`);}
+ // textos
+ const cap=$('cap');let txt='',o=0,sc=1;
+ if(tt>=1.6&&tt<4.6){txt='SOL.';o=Math.min(seg(tt,1.6,2.4),1-seg(tt,3.9,4.6))}
+ else if(tt>=5.6&&tt<8.8){txt='NEÓN.';o=Math.min(seg(tt,5.6,6.4),1-seg(tt,8.1,8.8))}
+ else if(tt>=11.4&&tt<15.4){txt='AMBICIÓN.';o=Math.min(seg(tt,11.4,12.2),1-seg(tt,14.6,15.4))}
+ if(cap.dataset.t!==txt){cap.textContent=txt;cap.dataset.t=txt}
+ cap.style.opacity=o;cap.style.transform=`translateY(${(1-o)*30}px) scale(${lerp(1.08,1,o)})`;
+ const ti=ease(seg(tt,17.2,18.6));$('titulo').style.opacity=ti;$('titulo').style.transform=`scale(${lerp(1.12,1,ti)})`;
+ const su=ease(seg(tt,18.6,19.6));$('sub').style.opacity=su;$('sub').style.transform=`translateY(${(1-su)*14}px)`;
+ $('nota').style.opacity=.75*ease(seg(tt,19.8,20.8));
+ // barras cine, fade
+ const bar=POSTER?0:lerp(14,6,seg(tt,0,2));document.documentElement.style.setProperty('--bar',bar+'vh');
+ $('fade').style.opacity=Math.max(1-seg(tt,0,1.4),seg(tt,Dur-1.2,Dur));
+ $('grano').style.transform=`translate(${(Math.sin(tt*97)*30)|0}px,${(Math.cos(tt*83)*30)|0}px)`;
+}
+window.render=render;window.DUR=Dur;
+const q=new URLSearchParams(location.search);
+if(q.has('t')){render(parseFloat(q.get('t')))}
+else{const t0=performance.now();(function f(n){const t=((n-t0)/1000)%(Dur+1.5);render(Math.min(t,Dur));requestAnimationFrame(f)})(t0)}
+
+</script></body></html>
