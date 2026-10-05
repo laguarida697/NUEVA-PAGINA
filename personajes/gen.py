@@ -36,8 +36,8 @@ def mimi(x, y, sc=1):
     g+='<path d="M-120 280 Q0 310 120 280 L116 262 Q0 290 -116 262Z" fill="#ffd1a0" opacity=".55"/>'
     g+='<circle cx="-44" cy="190" r="12" fill="#fff3c4"/><circle cx="46" cy="214" r="12" fill="#fff3c4"/><circle cx="0" cy="160" r="10" fill="#fff3c4"/>'
     # brazos
-    g+='<path d="M-100 110 Q-190 140 -176 210" stroke="#f3b98f" stroke-width="38" stroke-linecap="round" fill="none"/><path d="M100 110 Q190 70 196 -10" stroke="#f3b98f" stroke-width="38" stroke-linecap="round" fill="none"/>'
-    g+='<circle cx="-176" cy="212" r="26" fill="#ffd7b8"/><circle cx="196" cy="-14" r="26" fill="#ffd7b8"/>'
+    g+='<g class="armL" data-px="-100" data-py="110"><path d="M-100 110 Q-190 140 -176 210" stroke="#f3b98f" stroke-width="38" stroke-linecap="round" fill="none"/><circle cx="-176" cy="212" r="26" fill="#ffd7b8"/></g>'
+    g+='<g class="armR" data-px="100" data-py="110"><path d="M100 110 Q190 70 196 -10" stroke="#f3b98f" stroke-width="38" stroke-linecap="round" fill="none"/><circle cx="196" cy="-14" r="26" fill="#ffd7b8"/></g>'
     # pelo detrás + coletas
     g+='<circle cx="-150" cy="-30" r="52" fill="url(#pelo)"/><circle cx="150" cy="-30" r="52" fill="url(#pelo)"/>'
     g+='<circle cx="0" cy="-10" r="152" fill="url(#pelo)"/>'
@@ -61,8 +61,8 @@ def tito(x, y, sc=1):
     g+='<path d="M-150 300 Q-170 110 -70 60 L70 60 Q170 110 150 300 L120 280 L90 310 L55 282 L22 312 L-12 282 L-48 312 L-84 282 L-120 308Z" fill="url(#sabana)"/>'
     g+='<path d="M-130 250 Q-150 120 -78 74" stroke="#bdb9e3" stroke-width="6" fill="none" opacity=".6"/>'
     # brazos fuera de la sábana
-    g+='<path d="M-110 120 Q-200 80 -196 -4" stroke="#f3b98f" stroke-width="36" stroke-linecap="round" fill="none"/><path d="M110 120 Q200 150 190 220" stroke="#f3b98f" stroke-width="36" stroke-linecap="round" fill="none"/>'
-    g+='<circle cx="-196" cy="-8" r="25" fill="#ffd7b8"/><circle cx="190" cy="224" r="25" fill="#ffd7b8"/>'
+    g+='<g class="armL" data-px="-110" data-py="120"><path d="M-110 120 Q-200 80 -196 -4" stroke="#f3b98f" stroke-width="36" stroke-linecap="round" fill="none"/><circle cx="-196" cy="-8" r="25" fill="#ffd7b8"/></g>'
+    g+='<g class="armR" data-px="110" data-py="120"><path d="M110 120 Q200 150 190 220" stroke="#f3b98f" stroke-width="36" stroke-linecap="round" fill="none"/><circle cx="190" cy="224" r="25" fill="#ffd7b8"/></g>'
     # capucha de sábana
     g+='<path d="M-170 10 Q-176 -170 0 -176 Q176 -170 170 10 Q160 100 90 100 L-90 100 Q-160 100 -170 10Z" fill="url(#sabana)"/>'
     g+='<path d="M-150 40 Q-150 -130 -10 -150" stroke="#bdb9e3" stroke-width="6" fill="none" opacity=".5"/>'
